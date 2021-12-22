@@ -1,0 +1,84 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="divChoosePlan">
+    <div class="panel panel-group claro-panel-primary">
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group">
+                    
+                    <div class="col-md-3 remove-padding">
+                        <label class="control-label col-sm-4 control-label-align" for="inputEmail">Vigencia: </label>
+                        <div class="col-sm-8">
+                            <select id="cboStatusFilter" class="form-control input-sm cboFilter" data-filter="PlanStatus"></select>
+                        </div>
+                    </div>
+                      
+                    <div class="col-md-4 remove-padding">
+                        <label class="control-label col-sm-4 control-label-align" for="inputEmail">Campaña: </label>
+                        <div class="col-sm-8">
+                            <select id="cboCampaignFilter" class="form-control input-sm cboFilter" data-filter="CampaignDescription"></select>
+                        </div>
+                    </div>
+                      
+                    <div class="col-md-3 remove-padding">
+                        <label class="control-label col-sm-4 control-label-align" for="inputEmail">Solución: </label>
+                        <div class="col-sm-8">
+                            <select id="cboSolutionFilter" class="form-control input-sm cboFilter" data-filter="SolutionDescription"></select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <button id="btnClean" data-toggle="modal" type="button" class="btn btn-style btn-sm pull-right">
+                            <i class="glyphicon glyphicon-refresh"></i> <span>Limpiar</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-group">                    
+                    <label class="control-label col-sm-1 control-label-align" for="inputEmail">Mostrar: </label>                    
+                    <div class="col-sm-1">
+                        <select id="cboPageLength" class="form-control-sm filter-box">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3 text-left control-label-align">
+                        Registros por página
+                    </div>
+                    <div class="col-md-7">
+                        <div class="col-sm-7 remove-padding pull-right">
+                            <input type="text" class="form-control" id="txtSearch" maxlength="200" placeholder="¿Que estas buscando?">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="tblPlans">
+                            <thead>
+                                <tr>
+                                    <th>Selec.</th>
+                                    <th class="col-sm-1" style="display:none">Codigo del Plan</th>
+                                    <th class="col-sm-5">Nombre del Plan</th>
+                                    <th class="col-sm-4">Campaña</th>
+                                    <th class="col-sm-2">Solución</th>
+                                    <th class="col-sm-1">Vigente</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")
+<script src="~/Areas/PlanMigration/Scripts/PlanMigrationChoosePlan.js"></script>

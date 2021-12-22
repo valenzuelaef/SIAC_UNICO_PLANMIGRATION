@@ -1,0 +1,49 @@
+﻿<div id="divAdditionalPoints" class="bg-container">
+
+    <!--Title-->
+    <div class="row">
+        <div class="customer-data-title">
+            <div class="customer-data-title-items customer-data-title-icon">
+                <span class="new-service-additional-icon"></span>
+            </div>
+            <div class="customer-data-title-items customer-data-title-label">
+                <span>GESTIONA TUS PUNTOS ADICIONALES</span>
+            </div>
+        </div>
+    </div>
+    <!--Title-->
+
+    <div class="table-responsive">
+        <table class="table table-borderless">
+            <tbody>
+                <tr data-type="Anx" data-price="5" data-name="Anexos">
+                    <td>
+                        <label>Anexos</label>
+                    </td>
+                    <td class="text-right">
+                        <span>S/5.00</span>
+                    </td>
+                    <td>
+                        <button type="button" class="close math-operator pull-right btnMoreAdditional" disabled>+</button>
+                        <span id="spnQuantityAnx" class="badge math-operator pull-right">0</span>
+                        <button type="button" class="close math-operator pull-right btnMinAdditional" disabled>-</button>
+                    </td>
+                </tr>
+                <tr data-type="Pnts" data-price="30" data-name="Puntos de Red">
+                    <td>
+                        <label>Puntos de Red</label>
+                    </td>
+                    <td class="text-right">
+                        <span>S/30.00</span>
+                    </td>
+                    <td>
+                        <button type="button" class="close math-operator pull-right btnMoreAdditional" disabled>+</button>
+                        <span id="spnQuantityPnts" class="badge math-operator pull-right">0</span>
+                        <button type="button" class="close math-operator pull-right btnMinAdditional" disabled>-</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")

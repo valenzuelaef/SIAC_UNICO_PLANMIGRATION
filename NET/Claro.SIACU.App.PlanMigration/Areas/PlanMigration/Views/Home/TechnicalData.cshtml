@@ -1,0 +1,70 @@
+﻿<div id="divTechnicalData">
+    <!--Title-->
+    <div class="row">
+        <div class="customer-data-title">
+            <div class="customer-data-title-items customer-data-title-icon">
+                <span class="additional_info-icon"></span>
+            </div>
+            <div class="customer-data-title-items customer-data-title-label">
+                <span>DATOS TÉCNICOS</span>
+            </div>
+        </div>
+    </div>
+    <!--Title-->
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-8">
+                <input id="chkWhitePages" type="checkbox" class="style-checkbox" aria-label="..." checked>
+                <label for="chkWhitePages" class="inline-label"></label>
+                <label class="label-cp" style="font-size: 15px; margin-left: 5px;">Publicar número de teléfono en Páginas Blancas</label>
+            </div>            
+        </div>
+
+        <div class="row">           
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="company" class="label-cp">¿Enviar por email?</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input id="chkEmail" type="checkbox" class="style-checkbox" aria-label="..." checked>
+                            <label for="chkEmail" class="inline-label"></label>
+                        </span>
+                        <input id="txtEmail" type="text" class="form-control inputs-cp" value="" aria-label="...">
+                    </div>
+                    <p id="ErrorMessageEmail" class="alert-danger alert-message"></p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="company" class="label-cp">Teléfono de referencia. (opcional)</label>
+                    <input type="text" id="txtReferencePhone" class="form-control inputs-cp" placeholder=""  maxlength="12">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="company" class="label-cp">Punto de Atención</label>
+                    <select id="ddlCenterofAttention" class="form-control inputs-cp">  </select>
+                    <p id="ErrorMessageddlCenterofAttention" class="alert-danger alert-message"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="company" class="label-cp">Notas.</label>
+                    <textarea id="txtNote"  class="form-control inputs-cp" rows="6" style="resize:none;"></textarea>
+                </div>
+            </div>
+        </div>
+  
+    </div>
+</div>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")

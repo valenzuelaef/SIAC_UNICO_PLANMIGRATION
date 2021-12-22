@@ -1,0 +1,55 @@
+﻿<div id="divAdditionalServices" class="bg-container">
+    
+    <!--Title-->
+    <div class="row">
+        <div class="customer-data-title">
+            <div class="customer-data-title-items customer-data-title-icon">
+                <span class="new-service-core-icon"></span>
+            </div>
+            <div class="customer-data-title-items customer-data-title-label">
+                <span>SERVICIOS ADICIONALES</span>
+            </div>
+        </div>
+    </div>
+    <!--Title-->
+
+    <div class="form-horizontal">
+
+        <div class="row form-group">
+            <label class="control-label col-sm-4 text-left" for="internetAdditionalServices">
+                <img src="/Content/Images/SUFija/ico_internet.svg" alt="..." class="">Internet
+            </label>
+            <div class="col-sm-8">
+                <select class="form-control additionalService" id="internetAdditionalServices" multiple="multiple"></select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label class="control-label col-sm-4 text-left" for="telephonyAdditionalServices">
+                <img src="/Content/Images/SUFija/ico_phone.svg" alt="..." class="">Telefonía
+            </label>
+            <div class="col-sm-8">
+                <select class="form-control additionalService" id="telephonyAdditionalServices"></select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label class="control-label col-sm-4 text-left" for="cableAdditionalServices">
+                <img src="/Content/Images/SUFija/ico_cable.svg" alt="..." class="">Cable
+            </label>
+            <div class="col-sm-8">
+                <select class="form-control additionalService" id="cableAdditionalServices" multiple="multiple"></select>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="table-responsive">
+        <table id="pvAdditionalEquipments" class="table table-borderless">
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")

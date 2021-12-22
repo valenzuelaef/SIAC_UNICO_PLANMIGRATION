@@ -1,0 +1,103 @@
+﻿<div id="divScheduling">
+
+    <!--Title-->
+    <div class="row">
+        <div class="customer-data-title">
+            <div class="customer-data-title-items customer-data-title-icon">
+                <span class="scheduling-icon"></span>
+            </div>
+            <div class="customer-data-title-items customer-data-title-label">
+                <span>AGENDAMIENTO</span>
+            </div>
+        </div>
+    </div>
+    <!--Title-->
+      
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="company" class="label-cp">Tipo de Trabajo.</label>
+                            <select id="ddlWorkType" class="form-control inputs-cp" disabled></select>
+                            <p id="ErrorMessageddlWorkType" class="alert-danger alert-message"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="company" class="label-cp">Sub Tipo de Trabajo.</label>
+                            <select id="ddlSubWorkType" class="form-control inputs-cp"></select>
+                            <p id="ErrorMessageddlSubWorkType" class="alert-danger alert-message"></p>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="company" class="label-cp">Fecha de Visita.</label>
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control input-sm" id="txtCalendar" placeholder="DD/MM/AAAA">
+                                <label id="calendartxtStartDate" class="btn transaction-button input-group-addon" for="txtCalendar">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </label>
+                            </div>
+                            <p id="ErrorMessagetxtCalendar" class="alert-danger alert-message"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="company" class="label-cp">Horario</label>
+                            <select id="ddlTimeZone" class="form-control input-sm"> </select>
+                            <p id="ErrorMessageddlTimeZone" class="alert-danger alert-message"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="/Content/Images/SUFija/ico_con_visita.png" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style> 
+    .datepicker table tr td.disabled {
+        background: red;
+        color: white;
+        cursor: default;
+    }
+
+        .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+            background: red;
+            color: white;
+            cursor: default;
+        }
+
+
+</style>
+
+
+<script type="text/javascript">
+    function unavailable(date) {
+        dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+        if ($.inArray(dmy, unavailableDates) == -1) {
+            return [true, ""];
+        } else {
+            return [false, "", "No Disponible"];
+        }
+    }
+
+    var date = new Date();
+    date.setDate(date.getDate());
+    $("#txtCalendar").datepicker({
+        format: 'dd/mm/yyyy',
+        startDate: date,
+        autoclose: true,
+        minDate: 0,
+        // beforeShowDay: unavailable
+    });
+</script>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")

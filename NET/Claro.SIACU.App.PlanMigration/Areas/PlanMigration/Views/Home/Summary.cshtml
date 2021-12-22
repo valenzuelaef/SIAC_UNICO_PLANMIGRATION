@@ -1,0 +1,191 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="divSummary">
+
+    <!--Title-->
+    <div class="row">
+        <div class="customer-data-title">
+            <div class="customer-data-title-items customer-data-title-icon">
+                <span class="summary-icon"></span>
+            </div>
+            <div class="customer-data-title-items customer-data-title-label">
+                <span>RESUMEN</span>
+            </div>
+        </div>
+    </div>
+    <!--Title-->
+
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+            
+            <li role="presentation" class="active">
+                <a href="#detailed" aria-controls="benefits" role="tab" data-toggle="tab">
+
+                    <div class="customer-data-title box">
+
+                        <div class="customer-data-title-items customer-data-title-icon">
+                            <span class="detailed-icon"></span>
+                        </div>
+
+                        <div class="customer-data-title-items customer-data-title-label">
+                            <span>DETALLADO</span>
+                        </div>
+
+                    </div>
+                </a>
+            </li>
+
+            <li role="presentation">
+                <a href="#comments" aria-controls="detailed" role="tab" data-toggle="tab">
+
+                    <div class="customer-data-title box">
+
+                        <div class="customer-data-title-items customer-data-title-icon">
+                            <span class="speech-icon"></span>
+                        </div>
+
+                        <div class="customer-data-title-items customer-data-title-label">
+                            <span>COMENTARIOS</span>
+                        </div>
+                    </div>
+
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content" style="margin-bottom: 15px;">
+
+            <div role="tabpanel" style="padding: 10px; border: 1px solid rgba(123, 123, 123, 0.5);" class="tab-pane active" id="detailed">
+
+                <div id="resumeServices" class="plan-resume col-sm-10 col-sm-offset-1"></div>
+
+                <div class="clearfix"></div>
+
+                <hr />
+
+                <div id="resumeContent">
+
+                    <b>---------------PLAN ACTUAL---------------</b><br />
+                    <b>Ciclo de Facturación:</b> 24 <br />
+                    <b>Campaña:</b> HFC CP 2019-02<br />
+                    <b>Servicio:</b> 3 PLAY<br />
+                    <b>Combinación:</b> INTERNET + TELEFONIA + CABLE<br />
+                    <b>Calidad:</b> Claro HDTV Avanzado<br />
+                    <br />
+                    <b>----------------NUEVO PLAN----------------</b><br />
+                    INTERNET | 30 Costo S/. 175<br />
+                    TELEFONIA | Telefonía 100 | Costo S/. 16<br />
+                    CABLE |	2 Puntos Digitales HD | S/. 15<br />
+                    <b>Nuevo Cargo Fijo:</b> S/. 170<br />
+                    <br />
+                    <b>--------TIPO DE TRABAJO A REALIZAR--------</b><br />
+                    UPGRADE INTERNET  10000 A 30000 MB<br />
+                    Mantener: DOCSIS 3.0 (8.4)<br />
+                    Instalar: 2 Puntos digitales HDTV<br />
+                    * CON VISITA<br />
+
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button id="btnCopy" name="bntCopy" class="btn btn-style btn-sm">Copiar</button>
+                </div>
+
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="comments" style="padding:10px;">
+                XXXX (Sr. ó Sra.), mencionarle en que su siguiente factura, percibira un cobro, <br />
+                con un monto aproximado de <b>S/. 172.68</b> <br />
+                que será por unica vez debido a la migración realizada. <br />
+                <br />
+                En adelante su cargo mensual se mantiene en <b>S/. 170</b> <br />
+                * Solo recordarle que el plazo de atención de su solicitud es de <b>7 días útiles</b> y que recibirá la visita técnica para la instalación de los equipos. <br />
+                Tiene alguna duda con respecto a la información brindada.<br />
+                <br />
+                <b>APROX. RECIBE: 24 de enero del 2020</b> <br />
+                <b>S/. 172.68</b>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="divInformApportionment" class="bg-container" >
+
+        <div class="row">
+            <div class="customer-data-title">
+                <div class="customer-data-title-items customer-data-title-icon">
+                    <span class="new-service-core-icon"></span>
+                </div>
+                <div class="customer-data-title-items customer-data-title-label">
+                    <span>INFORMALE AL CLIENTE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-margin-bottom">
+
+            <div class="col-sm-6">
+                <div class="col-sm-11 col-sm-offset-1 text-right" style="background: #837F7F; border-radius: 5px; height:auto; padding: 5px">
+                    <div class="col-sm-6 text-left">
+                        <span style="font-weight: bold; font-size: 15px; color: #FFFFFF; ">Cargo Fijo Actual</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span id="fixedChargeCurrent" class="pull-right" style="font-weight: bold; font-size: 15px; color: #FFFFFF;">S/ 0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="col-sm-11 text-right" style="background: #837F7F; border-radius: 5px; height:auto; padding: 5px">
+                    <div class="col-sm-6 text-left">
+                        <span style="font-weight: bold; font-size: 15px; color: #FFFFFF; ">Nuevo Cargo Fijo</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span id="fixedChargeNew" class="pull-right" style="font-weight: bold; font-size: 15px; color: #FFFFFF;">S/ 0.00</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row row-margin-bottom">
+
+            <div class="col-sm-6">
+                <div class="col-sm-11 col-sm-offset-1 text-right" style="background: #837F7F; border-radius: 5px; height:auto; padding: 5px">
+                    <div class="col-sm-6 text-left">
+                        <span style="font-weight: bold; font-size: 15px; color: #FFFFFF; ">Cargo Fijo Promocional</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span id="fixedChargePromotional" class="pull-right" style="font-weight: bold; font-size: 15px; color: #FFFFFF;">S/ 0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="col-sm-11 text-right" style="background: #837F7F; border-radius: 5px; height:auto; padding: 5px">
+                    <div class="col-sm-6 text-left">
+                        <span style="font-weight: bold; font-size: 15px; color: #FFFFFF; ">Siguiente Recibo</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span id="nextReceiptApportionment" class="pull-right" style="font-weight: bold; font-size: 15px; color: #FFFFFF;">S/ 0.00</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-6 col-md-6">
+                <p style="font-size: 9px;" class="text-center">*(Cargo Fijo + Prorrateo + Costo de Instalación)</p>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+    </div>
+
+</div>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")

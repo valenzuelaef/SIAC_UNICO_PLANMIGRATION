@@ -1,0 +1,59 @@
+﻿<div id="divNewPlan" class="bg-container">
+
+    <!--Title-->
+    <div class="row">
+        <div class="customer-data-title">
+            <div class="customer-data-title-items customer-data-title-icon">
+                <span class="new-plan-icon"></span>
+            </div>
+            <div class="customer-data-title-items customer-data-title-label">
+                <span>NUEVO PLAN</span>
+            </div>
+        </div>
+    </div>
+    <!--Title-->
+
+    <div class="form-horizontal">
+
+        <div class="row form-group">
+            <label class="control-label col-sm-4 text-left" for="txtSolucion">Campaña</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" readonly="readonly" id="txtSolucion" placeholder="">
+            </div>
+            <button type="button" class="btn btn-style btn-sm col-sm-3" id="btnAddPlan">
+                <img src="/Content/Images/SUFija/ico_add.svg" alt="" />
+                Agregar
+            </button>
+        </div>
+
+        <div class="row form-group">
+            <label class="control-label col-sm-4 text-left" for="coreInternetServices"><img src="/Content/Images/SUFija/ico_internet.svg" alt="..." class="">Internet</label>
+            <div class="col-sm-8">
+                <select class="form-control input-sm coreServices" id="coreInternetServices">
+                    <option value="">Seleccionar</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="row form-group">
+            <label class="control-label col-sm-4 text-left" for="coreTelephonyServices"><img src="/Content/Images/SUFija/ico_phone.svg" alt="..." class="">Telefonía</label>
+            <div class="col-sm-8">
+                <select class="form-control input-sm coreServices" id="coreTelephonyServices">
+                    <option value="">Seleccionar</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label class="control-label col-sm-4 text-left" for="coreCableServices"><img src="/Content/Images/SUFija/ico_cable.svg" alt="..." class="">Cable</label>
+            <div class="col-sm-8">
+                <select class="form-control input-sm coreServices" id="coreCableServices">
+                    <option value="">Seleccionar</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")

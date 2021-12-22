@@ -1,0 +1,69 @@
+﻿<div id="divSummaryPackage" class="bg-container bg-container-bg">
+
+    <!--Title-->
+    <div class="row">
+        <div class="customer-data-title">
+            <div class="customer-data-title-items customer-data-title-icon">
+                <span class="summary-icon"></span>
+            </div>
+            <div class="customer-data-title-items customer-data-title-label">
+                <span>RESUMEN DE NUEVO PLAN Y ADICIONALES</span>
+            </div>
+        </div>
+    </div>
+    <!--End Title-->
+
+    <table class="table table-borderless text-center recurrentService" id="tblServicesCore">
+        <thead>
+            <tr>
+                <th colspan="2" width="50%">Servicios Incluidos</th>
+                <th width="25%">Promociones</th>
+                <th width="25%" align="left">Cargo Fijo</th>
+            </tr>
+        </thead>
+        <tbody>           
+        </tbody>
+    </table>
+    
+    <div class="clearfix"></div>
+    
+    <table class="table table-borderless text-center recurrentService" id="tblAdditionals">
+        <thead>
+            <tr>
+                <th width="50%">Servicios y Equipos Adicionales</th>
+                <th width="25%" >Promociones</th>
+                <th width="25%" align="left">Cargo Adicional</th>
+            </tr>
+        </thead>
+        <tbody>            
+        </tbody>
+    </table>
+    
+    <div class="clearfix"></div>
+
+    <!--Costo Box-->
+    <div class="col-sm-12" style="background: #837F7F; border-radius: 5px; height:auto; padding: 5px; margin-bottom: 5px;">
+        <div class="col-sm-9">
+            <span style="font-weight: bold; font-size: 15px; color: #FFFFFF; ">Cargo Fijo Regular</span>
+        </div>
+        <div class="col-sm-3">
+            <span id="TotalPrice" class="pull-right" style="font-weight: bold; font-size: 15px; color: #FFFFFF;">S/ 0.00</span>
+        </div>
+    </div>
+
+    <div class="col-sm-12" style="background: #DD5F57; border-radius: 5px; height: auto; padding: 5px">
+        <div class="col-sm-9">
+            <span style="font-weight: bold; font-size: 15px; color: #FFFFFF;">Cargo Fijo Promocional</span>
+        </div>
+        <div class="col-sm-3">
+            <span id="TotalAdditionalPrice" class="pull-right" style="font-weight: bold; font-size: 15px; color: #FFFFFF;">S/ 0.00</span>
+        </div>
+    </div>
+    <!--End Costo Box-->
+  
+</div>
+@Scripts.Render("~/bundles/Content/Lib/BloqueoF12")<style>
+    .td-cp {
+        text-align:center;
+    }
+</style>
