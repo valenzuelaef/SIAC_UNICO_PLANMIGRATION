@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\publish\MP</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/PlanMigration/Images/3playBlanco.png">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Captura.PNG">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/claro-bg.png">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico-save.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_3play.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_3play_02.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_3play_sm.svg">
+      <publishTime>01/02/2020 18:45:03</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_add.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_agendamiento.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_cable.svg">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_cerrar.svg">
+      <publishTime>12/23/2019 16:21:40</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_clean.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_cliente.svg">
+      <publishTime>01/06/2020 15:11:22</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_deco.svg">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_deco_1.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_equipos%402x.png">
+      <publishTime>01/06/2020 15:52:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_info_adicional.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_internet.svg">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_modem.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_new_pqt.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_nodo.svg">
+      <publishTime>12/23/2019 16:21:40</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_nuevo_plan.svg">
+      <publishTime>01/06/2020 15:36:44</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_otros.svg">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_paquete.svg">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_person.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_persona.svg">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_phone.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_pqt_actual.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_resumen.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_screen.svg">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_servicios_adicionales.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_servicios_principales.svg">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_telefono.svg">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/ico_update.svg">
+      <publishTime>12/23/2019 16:21:40</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/img_3play_1.png">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Resume/ico_benefits.svg">
+      <publishTime>01/08/2020 16:48:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Resume/ico_benefits_off.svg">
+      <publishTime>01/08/2020 16:48:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Resume/ico_call.png">
+      <publishTime>01/08/2020 16:48:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Resume/ico_detailed.svg">
+      <publishTime>01/08/2020 16:48:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Resume/ico_detailed_off.svg">
+      <publishTime>01/08/2020 16:48:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Resume/ico_speech.svg">
+      <publishTime>01/08/2020 16:48:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/Resume/ico_speech_off.svg">
+      <publishTime>01/08/2020 16:48:34</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Images/titulo.PNG">
+      <publishTime>12/23/2019 14:55:16</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/AdditionalPoints.js">
+      <publishTime>01/07/2020 18:40:45</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/AdditionalServices.js">
+      <publishTime>01/08/2020 20:15:26</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/Bridge.js">
+      <publishTime>09/28/2021 13:49:36</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/ClaroAppCommon.js">
+      <publishTime>01/08/2020 20:13:56</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/CustomerData.js">
+      <publishTime>01/09/2020 11:47:07</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/Index.js">
+      <publishTime>10/15/2021 16:14:39</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/PlanMigration.js">
+      <publishTime>09/28/2021 13:49:36</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Scripts/PlanMigrationChoosePlan.js">
+      <publishTime>09/29/2021 09:29:31</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/AdditionalPoints.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/AdditionalServices.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/ChoosePlan.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/Container.cshtml">
+      <publishTime>12/06/2019 15:17:46</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/CustomerData.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/Index.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/InformCustomer.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/NewPlan.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/Resume.cshtml">
+      <publishTime>01/08/2020 20:13:56</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/Scheduling.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/Summary.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/SummaryAdditionalPoints.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/SummaryPackage.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/TechnicalData.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Home/WhitePages.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Redirect/Bridge.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/Shared/_Layout.cshtml">
+      <publishTime>09/28/2021 13:49:55</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/web.config">
+      <publishTime>09/28/2021 13:49:36</publishTime>
+    </File>
+    <File Include="Areas/PlanMigration/Views/_ViewStart.cshtml">
+      <publishTime>09/28/2021 13:49:36</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/28/2021 13:49:36</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>01/08/2020 18:54:37</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>01/08/2020 18:54:37</publishTime>
+    </File>
+    <File Include="bin/Claro.SIACU.App.PlanMigration.dll">
+      <publishTime>10/21/2021 16:26:53</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>09/28/2021 13:49:29</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>09/28/2021 13:49:40</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>09/28/2021 13:49:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>09/28/2021 13:49:44</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>09/28/2021 13:49:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>09/28/2021 13:49:53</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>09/28/2021 13:49:44</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>09/28/2021 13:49:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>09/28/2021 13:49:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>09/28/2021 13:49:43</publishTime>
+    </File>
+    <File Include="bin/Tools.Entity.dll">
+      <publishTime>09/28/2021 13:49:21</publishTime>
+    </File>
+    <File Include="bin/Tools.Traces.dll">
+      <publishTime>09/28/2021 13:49:21</publishTime>
+    </File>
+    <File Include="bin/Tools.Utils.dll">
+      <publishTime>09/28/2021 13:49:25</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-multiselect-v2.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-multiselect.css">
+      <publishTime>01/07/2020 11:14:34</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-theme.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/css/claro-fw.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/css/csdata.css">
+      <publishTime>01/09/2020 10:07:08</publishTime>
+    </File>
+    <File Include="Content/css/dataTables.bootstrap.min.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/css/datepicker.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/css/fonts.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/css/jquery.dataTables.select.css">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/28/2021 13:49:31</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/28/2021 13:49:30</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/28/2021 13:49:31</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/28/2021 13:49:31</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>09/28/2021 13:49:30</publishTime>
+    </File>
+    <File Include="Content/fonts/Lato-Regular.woff">
+      <publishTime>09/28/2021 13:49:32</publishTime>
+    </File>
+    <File Include="Content/fonts/Lato-Regular.woff2">
+      <publishTime>09/28/2021 13:49:31</publishTime>
+    </File>
+    <File Include="Content/fonts/Roboto-Regular.woff">
+      <publishTime>09/28/2021 13:49:30</publishTime>
+    </File>
+    <File Include="Content/fonts/Roboto-Regular.woff2">
+      <publishTime>09/28/2021 13:49:30</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/3playBlanco.png">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/Captura.png">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/claro-bg.png">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/favicon.ico">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico-save.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_3play.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_3play_02.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_3play_md.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_3play_sm.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_add.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_additional_information.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_additional_services.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_agendamiento.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_agendamiento_off.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_alert_claro.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_benefits.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_benefits_off.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_buena_off.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_buena_on.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_cable.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_call.png">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_cerrar.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_clean.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_client.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_cliente.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_close.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_cobertura_off.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_cobertura_on.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_con_visita.png">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_core_services.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_current_package.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_deco.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_deco_1.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_default.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_detailed.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_detailed_off.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_detallado_off.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_detallado_on.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_equipos%402x.png">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_face_no_off.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_face_no_on.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_face_si_off.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_face_si_on.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_guardar_blanco.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_guardar_rojo.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_info_adicional.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_info_mapa.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_info_mapa_on.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_internet.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_modem.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_new_package.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_new_pqt.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_node.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_nodo.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_nuevo_plan.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_orden_visita.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_otros.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_paquete.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_person.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_persona.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_phone.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_pqt_actual.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_resumen%402x.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_resumen.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_resumen_off.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_router.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_scheduling.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_screen.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_servicios_adicionales.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_servicios_principales%402x.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_servicios_principales.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_sin_visita.png">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_speech.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_speech_off.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_summary.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_telefono.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_traslado_externo.svg">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_traslado_externo_of.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_traslado_interno.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_traslado_interno_of.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_update.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_validar_plano.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_val_cobertura.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_val_cobertura_on.svg">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/ico_wrench.svg">
+      <publishTime>09/28/2021 13:49:38</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/img_3play_1.png">
+      <publishTime>09/28/2021 13:49:39</publishTime>
+    </File>
+    <File Include="Content/images/SUFija/loading_Claro.gif">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/Lib/BloqueoF12.js">
+      <publishTime>09/29/2021 08:49:22</publishTime>
+    </File>
+    <File Include="Content/Lib/bootstrap-datepicker.js">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/Lib/bootstrap-multiselect-v2.js">
+      <publishTime>09/28/2021 13:49:34</publishTime>
+    </File>
+    <File Include="Content/Lib/bootstrap-multiselect.js">
+      <publishTime>01/07/2020 18:36:45</publishTime>
+    </File>
+    <File Include="Content/Lib/bootstrap.js">
+      <publishTime>09/28/2021 13:49:37</publishTime>
+    </File>
+    <File Include="Content/Lib/dataTables.bootstrap.min.js">
+      <publishTime>09/28/2021 13:49:33</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery-2.0.0.js">
+      <publishTime>09/28/2021 13:49:34</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery-3.0.0.js">
+      <publishTime>12/05/2019 15:52:18</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery-3.0.0.slim.js">
+      <publishTime>12/05/2019 15:52:18</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery-ui.js">
+      <publishTime>09/28/2021 13:49:36</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery.blockUI.js">
+      <publishTime>09/28/2021 13:49:34</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery.dataTables.min.js">
+      <publishTime>09/28/2021 13:49:34</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery.dataTables.select.js">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/Lib/jquery.numeric.js">
+      <publishTime>09/28/2021 13:49:34</publishTime>
+    </File>
+    <File Include="Content/Lib/moment-es.js">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/Lib/moment.js">
+      <publishTime>09/28/2021 13:49:34</publishTime>
+    </File>
+    <File Include="Content/Lib/process-steps.js">
+      <publishTime>09/28/2021 13:49:35</publishTime>
+    </File>
+    <File Include="Content/Scripts/polyfill.js">
+      <publishTime>09/28/2021 13:49:32</publishTime>
+    </File>
+    <File Include="Content/Scripts/ReingApp.js">
+      <publishTime>09/29/2021 09:16:22</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>12/03/2019 16:06:58</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/28/2021 13:49:21</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/28/2021 13:49:21</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>01/08/2020 18:54:32</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/21/2021 16:26:58</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
