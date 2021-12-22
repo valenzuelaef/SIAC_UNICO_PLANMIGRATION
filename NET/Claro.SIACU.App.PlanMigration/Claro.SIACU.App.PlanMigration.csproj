@@ -117,7 +117,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitignore" />
     <Content Include="Content\images\SUFija\favicon.ico" />
     <Content Include="Content\images\SUFija\ico_3play_02.svg" />
     <Content Include="Content\images\SUFija\ico_cerrar.svg" />
