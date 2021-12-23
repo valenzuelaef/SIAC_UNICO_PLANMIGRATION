@@ -194,6 +194,7 @@
                         else
                             response.data = response.data.filter(function (x) { return x.CampaignDescription.indexOf('FTTH') == -1 });
                         }
+						
                         $.each(response.data, function (index, value) {
                             var vigencia = '';
                             var fecCurrent = new Date();
@@ -222,8 +223,9 @@
 
                             dataPlanes.push(feed);
 
-                        
                         });
+
+                        
                         Session.FixedPlan = dataPlanes;
 
                         Session.FixedPlan = Session.FixedPlan.map(function (plan) {

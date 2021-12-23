@@ -115,12 +115,23 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
                     plan = request.plan == null ? "" : request.plan,
                     tipo = request.tipo == null ? "" : request.tipo,
                     cantDeco = request.cantDeco == null ? "" : request.cantDeco,
+
+                    FechaDesde = string.Empty,
+                    FechaHasta = string.Empty,
+                    Estado = string.Empty,
+                    Asesor = string.Empty,
+                    Cuenta = string.Empty,
+                    TipoTransaccion = string.Empty,
+                    CodIteraccion = string.Empty,
+                    CadDac = string.Empty,
                     coIdPub = request.coIdPub == null ? "" : request.coIdPub,
                     flagConvivencia = ConfigurationManager.AppSettings["flagConvivenciaAsIsToBeReingFija"]
+
                 }
             };
             try
             {
+                Tools.Traces.Logging.Info(stridSession, oDatosAcicionalesDataRequest.Audit.Transaction, "Url: " + strUrl);
                 Tools.Traces.Logging.Info(stridSession, oDatosAcicionalesDataRequest.Audit.Transaction, "Request GetDatosAdicionales DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDatosAcicionalesDataRequest));
                 oDatosAcicionalesDataResponse = Utils.RestService.PostInvoque<Models.DatosAdicionales.DatosAdicionalesResponse>(strUrl, oDatosAcicionalesDataRequest.Audit, oDatosAcicionalesDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDatosAcicionalesDataRequest.Audit.Transaction, "Response GetDatosAdicionales DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDatosAcicionalesDataResponse));
@@ -232,10 +243,11 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
 
             try
             {
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request GetDatosVisitaTecnica DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<Models.VisitaTecnica.VisitaTecnicaResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response GetDatosVisitaTecnica DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataResponse));
-
+            
             }
             catch (Exception ex)
             {
@@ -304,6 +316,7 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
 
             try
             {
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl); 
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request GetDatosFranjaHorario DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<Models.FranjaHoraria.FranjaHorariaResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response GetDatosFranjaHorario DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataResponse));
@@ -425,8 +438,11 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
             Tools.Entity.AuditRequest oAuditRequest = Utils.Common.CreateAuditRequest<Tools.Entity.AuditRequest>(SessionID);
             Dictionary<string, string> oConfiguraciones = new Dictionary<string, string>();
             stridSession = SessionID;
+
             try
             {
+
+
                     string strUrl = ConfigurationManager.AppSettings["DPGetCargaDatosClienteFija"];
             oInitialDataRequest.Audit = oAuditRequest;
             oInitialDataRequest.MessageRequest = new Models.InitialData.InitialDataMessageRequest
@@ -461,8 +477,9 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
                         flagConvivencia =  ConfigurationManager.AppSettings["flagConvivenciaAsIsToBeReingFija"]
                         }
                     };
-                Tools.Traces.Logging.Info(SessionID, oInitialDataRequest.Audit.Transaction, "Request: " + JsonConvert.SerializeObject(oInitialDataRequest));
 
+            Tools.Traces.Logging.Info(SessionID, oInitialDataRequest.Audit.Transaction, "Url: " + strUrl);
+                Tools.Traces.Logging.Info(SessionID, oInitialDataRequest.Audit.Transaction, "Request: " + JsonConvert.SerializeObject(oInitialDataRequest));
                 oInitialDataResponse = Utils.RestService.PostInvoque<Models.InitialData.InitialDataResponse>(strUrl, oInitialDataRequest.Audit, oInitialDataRequest, true);
                 Tools.Traces.Logging.Info(SessionID, oInitialDataRequest.Audit.Transaction, "Response: " + JsonConvert.SerializeObject(oInitialDataResponse));
 
@@ -658,6 +675,7 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
             try
             {
 
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl); 
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request postGeneraTransaccion DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<Models.Transversal.GuardarDatosResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response postGeneraTransaccion DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataResponse));
@@ -718,6 +736,7 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
                     }
                 };
 
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request GestionarCancelarTOA Cambio Plan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<CancelarTOAResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response GestionarCancelarTOA Cambio Plan: " + JsonConvert.SerializeObject(oDataResponse));
@@ -787,6 +806,7 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
                     }
                 };
 
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request GestionarReservaTOA Cambio Plan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<ReservaTOAResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response GestionarReservaTOA Cambio Plan: " + JsonConvert.SerializeObject(oDataResponse));
@@ -864,6 +884,7 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
                     }
                 };
 
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl); 
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request GetConsultCampaign DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<ConsultCampaignCollabResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response GetConsultCampaign DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataResponse));
@@ -953,6 +974,7 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
                     }
                 };
 
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl); 
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request PostRegisterCampaign DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<RegisterCampaignCollabResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response PostRegisterCampaign DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataResponse));

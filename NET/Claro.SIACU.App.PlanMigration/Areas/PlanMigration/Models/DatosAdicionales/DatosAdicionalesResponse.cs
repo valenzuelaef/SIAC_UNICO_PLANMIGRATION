@@ -71,6 +71,9 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Models.DatosAdiciona
         [DataMember(Name = "planfijaservequip/obtPlanServEquDisponible")]
         public PlanFijaServicio PlanFijaServicioCampana { get; set; }
 
+        [DataMember(Name = "gestionprogramacionesfija/validarTareasProgramadas")]
+        public GestionProgramacionesFijaValidarTareasProgramadas gestionprogramacionesfija_validarTareasProgramadas { get; set; }
+
         [DataMember(Name = "consultatransaccionfija/validarTransaccion")]
         public ConsultatransaccionfijaValidarTransaccion consultatransaccionfija_validarTransaccion { get; set; } 
    
@@ -291,6 +294,25 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Models.DatosAdiciona
         public string FlagIndica { get; set; }
         [DataMember(Name = "flagReserva")]
         public string FlagReserva { get; set; }
+    }
+
+    [DataContract(Name = "gestionprogramacionesfija/validarTareasProgramadas")]
+    public class GestionProgramacionesFijaValidarTareasProgramadas
+    {
+        [DataMember(Name = "idTransaccion")]
+        public string IdTransaccion { get; set; }
+
+        [DataMember(Name = "codigoRespuesta")]
+        public string CodigoRespuesta { get; set; }
+
+        [DataMember(Name = "mensajeRespuesta")]
+        public string MensajeRespuesta { get; set; }
+
+        [DataMember(Name = "cantidadTareasProgramadas")]
+        public string CantidadTareasProgramadas { get; set; }
+
+        [DataMember(Name = "listaOpcionalResponse")]
+        public string ListaOpcionalResponse { get; set; }
     }
 
     [DataContract(Name = "consultatransaccionfija/validarTransaccion")]

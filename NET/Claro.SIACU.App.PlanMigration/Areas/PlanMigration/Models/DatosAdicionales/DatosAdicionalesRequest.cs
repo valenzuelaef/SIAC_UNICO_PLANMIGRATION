@@ -87,6 +87,30 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Models.DatosAdiciona
         public string tipo { get; set; }
         [DataMember(Name = "cantDeco")]
         public string cantDeco { get; set; }
+
+        [DataMember(Name = "fechaDesde")]
+        public string FechaDesde { get; set; }
+
+        [DataMember(Name = "fechaHasta")]
+        public string FechaHasta { get; set; }
+
+        [DataMember(Name = "estado")]
+        public string Estado { get; set; }
+
+        [DataMember(Name = "asesor")]
+        public string Asesor { get; set; }
+
+        [DataMember(Name = "cuenta")]
+        public string Cuenta { get; set; }
+
+        [DataMember(Name = "tipoTransaccion")]
+        public string TipoTransaccion { get; set; }
+
+        [DataMember(Name = "codIteraccion")]
+        public string CodIteraccion { get; set; }
+
+        [DataMember(Name = "cadDac")]
+        public string CadDac { get; set; }
         [DataMember(Name = "coIdPub")]//ContratoPublico-TOBE
         public string coIdPub { get; set; }//ContratoPublico-TOBE 
         [DataMember(Name = "flagConvivencia")]//ContratoPublico-TOBE

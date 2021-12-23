@@ -147,6 +147,7 @@
                         FixedPlan = AdditionalFixedData.servicios.FixedPlan || {},
                         FixedPlanDetail = AdditionalFixedData.servicios.FixedPlanDetail || {},
                         ValidarTransaccion = AdditionalFixedData.servicios.consultatransaccionfija_validarTransaccion || {},
+                        Programacion = AdditionalFixedData.servicios.gestionprogramacionesfija_validarTareasProgramadas || {},
                         AuditRequest = AuditRequest || {};
 
                     that.planMigrationSession.Data = {};
@@ -173,7 +174,7 @@
                     that.planMigrationSession.Data.DatosUsuarioCtaRed = (DatosUsuarioCtaRed.CodigoRespuesta == '0') ? DatosUsuarioCtaRed.listaDatosUsuarioCtaRed : [];
                     that.planMigrationSession.Data.OficinaVentaUsuario = (OficinaVentaUsuario.CodigoRespuesta == '0') ? OficinaVentaUsuario.listaOficinaVenta : [];
                     that.planMigrationSession.Data.Tipificacion = (Tipificacion.CodigoRespuesta == '0') ? Tipificacion.listaTipificacionRegla : [];
-
+                    that.planMigrationSession.Data.Programacion = Programacion;
                     that.planMigrationSession.Data.AuditRequest = AuditRequest;
 
 
@@ -384,6 +385,7 @@
                 controls = that.getControls(),
                 stateContract = !$.string.isEmptyOrNull(that.planMigrationSession.Data.CustomerInformation.ContractStatus) ? that.planMigrationSession.Data.CustomerInformation.ContractStatus : '',
                 stateService = !$.string.isEmptyOrNull(that.planMigrationSession.Data.CustomerInformation.ServiceStatus) ? that.planMigrationSession.Data.CustomerInformation.ServiceStatus : '';
+
             //debugger;
             if (!$.array.isEmptyOrNull(that.planMigrationSession.Data.CustomerInformation)) {
                 console.log('stateContracto: ' + stateContract);
@@ -411,7 +413,7 @@
 
             debugger;
 
-            /*if (!$.array.isEmptyOrNull(that.planMigrationSession.Data.ValidarTransaccion)) {
+            if (!$.array.isEmptyOrNull(that.planMigrationSession.Data.ValidarTransaccion)) {
                 if (that.planMigrationSession.Data.ValidarTransaccion.Codigo == "-3") {
                     alert(that.planMigrationSession.Data.ValidarTransaccion.Mensaje, 'Alerta', function () {
                         $.unblockUI();
@@ -428,7 +430,25 @@
                     return false;
                 }
 
-            }*/
+            }
+
+            //Checking for scheduled tasks.
+            var tareas = that.planMigrationSession.Data.Programacion.CantidadTareasProgramadas;
+            if (tareas != null || tareas != undefined) {
+                if (tareas.trim() != "0") {
+                    alert(that.planMigrationSession.Data.Programacion.MensajeRespuesta, 'Alerta', function () {
+                        $.unblockUI();
+                        parent.window.close();
+                    });
+                    return false;
+                }
+            } else {
+                alert('Hubo un error al validar las transacciones anteriores. Informe o vuelva a intentar', 'Alerta', function () {
+                    $.unblockUI();
+                    parent.window.close();
+                });
+                return false;
+            }
 
             return true;
         },
@@ -2676,7 +2696,7 @@
                             umbCons: item.umbCons,
                             tipoLimCred: item.tipoLimCred,
                             familia: item.familia,
-                            pop1: "123456789",//item.pop1,
+                            pop1: item.pop1,
                             pop2: item.pop2
                         };
                     })
