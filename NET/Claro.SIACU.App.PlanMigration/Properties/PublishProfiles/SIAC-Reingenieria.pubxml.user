@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\publish\MP</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\RTC\WorkSpace_Oscar\PUBLISH\MP</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/PlanMigration/Images/3playBlanco.png">
@@ -154,13 +154,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2020 11:47:07</publishTime>
     </File>
     <File Include="Areas/PlanMigration/Scripts/Index.js">
-      <publishTime>10/15/2021 16:14:39</publishTime>
+      <publishTime>01/05/2022 19:27:49</publishTime>
     </File>
     <File Include="Areas/PlanMigration/Scripts/PlanMigration.js">
       <publishTime>09/28/2021 13:49:36</publishTime>
     </File>
     <File Include="Areas/PlanMigration/Scripts/PlanMigrationChoosePlan.js">
-      <publishTime>09/29/2021 09:29:31</publishTime>
+      <publishTime>12/23/2021 11:02:55</publishTime>
     </File>
     <File Include="Areas/PlanMigration/Views/Home/AdditionalPoints.cshtml">
       <publishTime>09/28/2021 13:49:55</publishTime>
@@ -229,7 +229,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/08/2020 18:54:37</publishTime>
     </File>
     <File Include="bin/Claro.SIACU.App.PlanMigration.dll">
-      <publishTime>10/21/2021 16:26:53</publishTime>
+      <publishTime>01/05/2022 19:20:30</publishTime>
     </File>
     <File Include="bin/log4net.dll">
       <publishTime>09/28/2021 13:49:29</publishTime>
@@ -646,7 +646,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/28/2021 13:49:32</publishTime>
     </File>
     <File Include="Content/Scripts/ReingApp.js">
-      <publishTime>09/29/2021 09:16:22</publishTime>
+      <publishTime>01/05/2022 19:11:38</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>12/03/2019 16:06:58</publishTime>
@@ -661,7 +661,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/08/2020 18:54:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/21/2021 16:26:58</publishTime>
+      <publishTime>01/05/2022 19:20:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

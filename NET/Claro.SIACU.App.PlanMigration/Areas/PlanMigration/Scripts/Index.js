@@ -200,8 +200,7 @@
                     if (!that.InitialValidation()) {
                         return false;
                     }
-
-
+                    
                     var attributes = that.planMigrationSession.Data.Configuration;
                     that.planMigrationSession.Configuration.Steps = attributes.filter(function (e) { return (e.AttributeName == 'step') });
                     that.planMigrationSession.Configuration.Views = attributes.filter(function (e) { return (e.AttributeType == 'CONTENEDOR') });
@@ -210,7 +209,7 @@
                     that.planMigrationSession.Configuration.Constants.Plataforma_Facturador = Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT === 'TOBE' ? 'CBIO' : 'BSCS7';
 
                     that.planMigrationSession.Configuration.Constants.nroOrdenTOA = "0";
-
+                    that.planMigrationSession.Configuration.Constants.Constantes_maxDecosAdicionales = "4";
                     var
                         viewsPromise = that.viewsRenderPromise(),
                         stepsPromise = that.stepsRenderPromise(controls.stepsContainer);
@@ -1546,6 +1545,12 @@
             var obj = {};
             var equipment = {};
 
+            
+            if (that.planMigrationSession.Current.AdditionalEquipment.length == that.planMigrationSession.Configuration.Constants.Constantes_maxDecosAdicionales){
+                alert('Se alcanzó el número máximo de Decos adicionales.');
+                return
+            }             
+
             equipment.name = $(el).closest('tr').attr('data-name');
             equipment.type = $(el).closest('tr').attr('data-type');
             equipment.unitPrice = $(el).closest('tr').attr('data-price');
@@ -1559,7 +1564,7 @@
             if (cantidadTotalDecos > parseInt(that.planMigrationSession.Configuration.Constants.Constantes_CantidadMaximaEquipos)) return; //that.planMigrationSession.Configuration.Constants.CantidadMaximaEquipos
 
 
-            debugger;
+
             var additionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                 .filter(function (item) {
                     return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
@@ -1629,8 +1634,6 @@
             markup += '</tr>';
 
             controls.tblAdditionalServices.find('tbody').append(markup);
-
-
 
             that.planMigrationSession.Current.AdditionalEquipment.push({
 

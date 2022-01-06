@@ -1254,7 +1254,7 @@
                 var aplicaIGV = (transactionData.Data.plataformaAT == 'TOBE') ? '00' : transactionData.Data.Configuration.Constantes_Igv;
                 var that = this,
                   igv = "1." + aplicaIGV;
-                  
+
                 if (!$.array.isEmptyOrNull(transactionData.Data.CustomerInformation)) {
                     for (var prop in transactionData.Data.CustomerInformation) {
                         if ($(string.format('#spn{0}', prop)).length > 0) {
@@ -1338,6 +1338,7 @@
                     });
                 } else {
                     alert('Error al consultar los servicio principales del cliente. Por favor, reintente nuevamente más tarde.', null, function () {
+
                         $.unblockUI();
                         parent.window.close();
                     });
@@ -1796,11 +1797,14 @@
                                         //value.Codigo2: idConsulta- xejmpl: 7176588
                                         //value.Codigo :vFranja  - xejmpl: AM2
                                         //value.Codigo3: idBucket - xejmpl: BUCKET_PRUEBA_FTTH
-                                        //value.Descripcion2: FRANJA_HOR - xejmpl: 09:00-11:00
+                                        //value.Descripcion2: FRANJA_HOR - xejmpl: 09:00 am-11:00 am
                                     }
                                 });
                             }
-
+                            else {
+                                alert('El servicio capacity no devuelve listas franjas horarias.');
+                            }
+                            /*
                             if (response.dataCapacity.MessageResponse.Body.listaFranjaHorarioSga != null) {
                                 $.each(response.dataCapacity.MessageResponse.Body.listaFranjaHorarioSga, function (index, value) {
                                     control.append($('<option>', { value: value.Descripcion, html: value.Descripcion }));
@@ -1812,6 +1816,7 @@
                                     control.append($('<option>', { value: value.Descripcion, html: value.Descripcion }));
                                 });
                             }
+                            */
                         }
                         $.unblockUI();
                     },
@@ -1825,6 +1830,8 @@
                 }
                 );
             },
+
+
 
             LoadPointOfAttention: function (control, transactionData) {
                 var index = transactionData.Data.DatosUsuarioCtaRed.length;
