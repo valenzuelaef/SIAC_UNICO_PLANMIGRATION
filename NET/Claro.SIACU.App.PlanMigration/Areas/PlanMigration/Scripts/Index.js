@@ -200,8 +200,7 @@
                     if (!that.InitialValidation()) {
                         return false;
                     }
-
-
+                    
                     var attributes = that.planMigrationSession.Data.Configuration;
                     that.planMigrationSession.Configuration.Steps = attributes.filter(function (e) { return (e.AttributeName == 'step') });
                     that.planMigrationSession.Configuration.Views = attributes.filter(function (e) { return (e.AttributeType == 'CONTENEDOR') });
@@ -210,7 +209,7 @@
                     that.planMigrationSession.Configuration.Constants.Plataforma_Facturador = Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT === 'TOBE' ? 'CBIO' : 'BSCS7';
 
                     that.planMigrationSession.Configuration.Constants.nroOrdenTOA = "0";
-
+                    that.planMigrationSession.Configuration.Constants.Constantes_maxDecosAdicionales = "4";
                     var
                         viewsPromise = that.viewsRenderPromise(),
                         stepsPromise = that.stepsRenderPromise(controls.stepsContainer);
@@ -1546,6 +1545,12 @@
             var obj = {};
             var equipment = {};
 
+            
+            if (that.planMigrationSession.Current.AdditionalEquipment.length == that.planMigrationSession.Configuration.Constants.Constantes_maxDecosAdicionales){
+                alert('Se alcanzó el número máximo de Decos adicionales.');
+                return
+            }             
+
             equipment.name = $(el).closest('tr').attr('data-name');
             equipment.type = $(el).closest('tr').attr('data-type');
             equipment.unitPrice = $(el).closest('tr').attr('data-price');
@@ -1629,8 +1634,6 @@
             markup += '</tr>';
 
             controls.tblAdditionalServices.find('tbody').append(markup);
-
-
 
             that.planMigrationSession.Current.AdditionalEquipment.push({
 
@@ -2335,7 +2338,7 @@
             var fecCicloFacturacion = new Date(that.getFechaActual().split('/')[2] + "/" + that.getFechaActual().split('/')[1] + "/" + cicloFacturacion);
 
 
-            if (fecCambioPlan > fecCicloFacturacion) {// ciclo:18/05 ***  20/5-- >18/06  || 12/06 --> 18/06
+            if (fecCambioPlan >= fecCicloFacturacion) {// ciclo:18/05 ***  20/5-- >18/06  || 12/06 --> 18/06
                 fecCicloFacturacion = new Date(fecCicloFacturacion.setMonth(fecCicloFacturacion.getMonth() + 1));
             }
 
@@ -3192,6 +3195,10 @@
                         {
                             "parametro": "inter7",
                             "valor": Session.SessionParams.DATACUSTOMER.OfficeAddress //"SessionPMHFC.DATACUSTOMER.OfficeAddress"
+                        },
+                        {
+                            "parametro": "inter8",
+                            "valor": Math.ceil($("#spnPackageCost").html())
                         },
                         {
                             "parametro": "inter15",
