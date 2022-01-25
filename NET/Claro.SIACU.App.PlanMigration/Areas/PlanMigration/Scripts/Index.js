@@ -1564,7 +1564,7 @@
             if (cantidadTotalDecos > parseInt(that.planMigrationSession.Configuration.Constants.Constantes_CantidadMaximaEquipos)) return; //that.planMigrationSession.Configuration.Constants.CantidadMaximaEquipos
 
 
-            debugger;
+
             var additionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                 .filter(function (item) {
                     return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
