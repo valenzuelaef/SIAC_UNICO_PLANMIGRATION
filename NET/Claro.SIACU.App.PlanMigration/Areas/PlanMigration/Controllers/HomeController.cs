@@ -675,12 +675,12 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Controllers
             try
             {
 
-                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl); 
+                databytesFile = null;    
+                Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Url: " + strUrl);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Request postGeneraTransaccion DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataRequest));
                 oDataResponse = Utils.RestService.PostInvoque<Models.Transversal.GuardarDatosResponse>(strUrl, oDataRequest.Audit, oDataRequest, true);
                 Tools.Traces.Logging.Info(stridSession, oDataRequest.Audit.Transaction, "Response postGeneraTransaccion DP PostMigracionPlan: " + JsonConvert.SerializeObject(oDataResponse));
                 databytesFile = Convert.FromBase64String(oDataResponse.MessageResponse.Body.constancia);
-                oDataResponse.MessageResponse.Body.constancia = "";
 
             }
             catch (Exception ex)

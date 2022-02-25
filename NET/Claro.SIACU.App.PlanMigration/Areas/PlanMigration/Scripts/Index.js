@@ -166,7 +166,7 @@
                     that.planMigrationSession.Data.AdditionalEquipment = (AdditionalServices.CodeResponse == '0') ? AdditionalServices.AdditionalEquipmentList : [];
                     that.planMigrationSession.Data.ListIgv = (Igv.CodeResponse == '0') ? Igv.listaIGV : [];
                     that.planMigrationSession.Data.Configuration = (Configuration.CodeResponse == '0') ? Configuration.ProductTransaction.ConfigurationAttributes : [];
-                    //FIRU
+
                     that.planMigrationSession.Data.ValidarTransaccion = (ValidarTransaccion.ResponseAudit.CodigoRespuesta == '0') ? ValidarTransaccion.ResponseData : [];
 
                     that.planMigrationSession.Data.Instalacion = (Instalacion.codigoRespuesta == '0') ? Instalacion : [];
@@ -200,7 +200,7 @@
                     if (!that.InitialValidation()) {
                         return false;
                     }
-                    
+
                     var attributes = that.planMigrationSession.Data.Configuration;
                     that.planMigrationSession.Configuration.Steps = attributes.filter(function (e) { return (e.AttributeName == 'step') });
                     that.planMigrationSession.Configuration.Views = attributes.filter(function (e) { return (e.AttributeType == 'CONTENEDOR') });
@@ -1174,7 +1174,7 @@
             var that = this,
                 additionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                     .filter(function (item) {
-                        return item.PlanCode == (that.planMigrationSession.Current.Plan.PlanCode && item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO' && isNaN(item.EquipmentCode)) || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS'
+                        return item.PlanCode == (that.planMigrationSession.Current.Plan.PlanCode && item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO' && isNaN(item.EquipmentCode)) || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS'
                     })
                     .map(function (item) {
                         // item.ServiceDescription = $.string.capitalize(item.ServiceDescription.split(' ').slice(1).join(' '));
@@ -1190,7 +1190,7 @@
                             IdServicio: item.sncode == null ? "" : item.sncode,
                             //spcode: item.spCode == null ? "" : item.spCode,
                             //spcode: item.coreAdicional == 'EQUIPO_ALQUILER' && (item.spCode == null ||item.spCode == '')? '1124' : item.spCode, //Default 1124  EQUIPO_ALQUILER
-                            spcode: (item.coreAdicional == 'EQUIPO_ALQUILER' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') && $.string.isEmptyOrNull(item.spCode) ? '1124' : item.spCode, //Default 1124  EQUIPO_ALQUILER
+                            spcode: (item.coreAdicional == 'EQUIPO_ALQUILER' || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') && $.string.isEmptyOrNull(item.spCode) ? '1124' : item.spCode, //Default 1124  EQUIPO_ALQUILER
                             GroupName: item.Group == null ? "" : item.Group,
 
                             price: item.FixedCharge == null ? "" : item.FixedCharge,
@@ -1545,11 +1545,11 @@
             var obj = {};
             var equipment = {};
 
-            
-            if (that.planMigrationSession.Current.AdditionalEquipment.length == that.planMigrationSession.Configuration.Constants.Constantes_maxDecosAdicionales){
+
+            if (that.planMigrationSession.Current.AdditionalEquipment.length == that.planMigrationSession.Configuration.Constants.Constantes_maxDecosAdicionales) {
                 alert('Se alcanzó el número máximo de Decos adicionales.');
                 return
-            }             
+            }
 
             equipment.name = $(el).closest('tr').attr('data-name');
             equipment.type = $(el).closest('tr').attr('data-type');
@@ -1564,13 +1564,13 @@
             if (cantidadTotalDecos > parseInt(that.planMigrationSession.Configuration.Constants.Constantes_CantidadMaximaEquipos)) return; //that.planMigrationSession.Configuration.Constants.CantidadMaximaEquipos
 
 
-
+            debugger;
             var additionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                 .filter(function (item) {
                     return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
                         /*item.coreAdicional == 'EQUIPO_ALQUILER' &&
                         item.ServiceEquiptment == 'EQUIPO' &&*/
-                        ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                        ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS') &&
                         item.tipoEquipo.toUpperCase() == equipment.ServiceDescription.toUpperCase() &&
                         item.ServiceDescription.toUpperCase().indexOf(quantity) > -1 &&
                         isNaN(item.EquipmentCode)
@@ -1703,7 +1703,7 @@
                           return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
                               /*item.coreAdicional == 'EQUIPO_ALQUILER' &&
                               item.ServiceEquiptment == 'EQUIPO' &&*/
-                              ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                              ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
                               item.tipoEquipo.toUpperCase() == equipment.name.toUpperCase() &&
                               item.ServiceDescription.toUpperCase().indexOf(equipment.quantity) > -1 &&
                               isNaN(item.EquipmentCode)
@@ -1744,7 +1744,7 @@
                         return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
                            /*item.coreAdicional == 'EQUIPO_ALQUILER' &&
                             item.ServiceEquiptment == 'EQUIPO' && */
-                            ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                            ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
                             item.tipoEquipo.toUpperCase() == equipment.name.toUpperCase() &&
                             item.ServiceDescription.toUpperCase().indexOf(equipment.quantity) > -1 &&
                             isNaN(item.EquipmentCode)
@@ -2704,7 +2704,7 @@
                         };
                     })
 
-					that.planMigrationSession.Data.FixedPlanDetail = that.planMigrationSession.Data.FixedPlanDetail.filter(function (el) { return el.CodeGroup.indexOf('FALTA CONFIG') == -1 });
+                    that.planMigrationSession.Data.FixedPlanDetail = that.planMigrationSession.Data.FixedPlanDetail.filter(function (el) { return el.CodeGroup.indexOf('FALTA CONFIG') == -1 });
                     //
 
                 }
@@ -3003,14 +3003,17 @@
             return true;
         },
         Constancy_click: function () {
+            var that = this;
             var params = ['height=600',
                 'width=750',
                 'resizable=yes',
                 'location=yes'
             ].join(',');
-
             var strIdSession = Session.UrlParams.IdSession;
-            window.open('/PlanMigration/Home/ShowRecordSharedFile' + "?&strIdSession=" + strIdSession, "_blank", params);
+            if (that.planMigrationSession.Data.Constancia)
+                window.open('/PlanMigration/Home/ShowRecordSharedFile' + "?&strIdSession=" + strIdSession, "_blank", params);
+            else
+                alert('Ocurió un error al generar la constancia.');
         },
         stopCountDown: false,
 
@@ -3609,6 +3612,7 @@
             objLoadParameters.servicios = servicios;
             objLoadParameters.stridSession = Session.UrlParams.IdSession;
             objLoadParameters.TransactionID = that.planMigrationSession.Data.idTransactionFront;
+            debugger;
             var urlBase = '/PlanMigration/Home/postGeneraTransaccion';
             $.app.ajax({
                 type: 'POST',
@@ -3643,6 +3647,8 @@
                                 controls.divFooterInfoSot.show();
                                 controls.divFooterInfoSot.prepend('Nro. SOT: ' + nroSot + ' </p>');
                                 $('.transaction-button-Steps').attr('disabled', true);
+                                that.planMigrationSession.Data.Constancia = !$.string.isEmptyOrNull(response.data.MessageResponse.Body.constancia) ? true : false;
+
                             }
                         }
                         else {
@@ -3879,6 +3885,7 @@
             feed += "<PLATF_FACTURADOR>{19}</PLATF_FACTURADOR>";
             feed += "<PO_BASICA>{20}</PO_BASICA>";
             feed += "<CAMPANA_DESC>{21}</CAMPANA_DESC>";
+            feed += "<ID_CONSULTA_ETA>{22}</ID_CONSULTA_ETA>";
             feed += "</BODY>";
             return string.format(
                 feed,
@@ -3904,7 +3911,8 @@
                 controls.txtReferencePhone.val(),
                 that.planMigrationSession.Configuration.Constants.Plataforma_Facturador,
                 Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT === 'TOBE' ? that.planMigrationSession.Current.Plan.TMCode : '',
-                that.planMigrationSession.Current.Plan.CampaignDescription
+                that.planMigrationSession.Current.Plan.CampaignDescription,
+				($.string.isEmptyOrNull($("#ddlTimeZone option:selected").attr('idConsulta')) ? '' : $("#ddlTimeZone option:selected").attr('idConsulta'))
             );
 
         },
@@ -3954,23 +3962,23 @@
                 feed += "<POP2>{24}</POP2>";
                 //var nuevoPrecio = Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT !== 'TOBE' ? select.Price.toString().replace(".", ",") : that.priceFormat(parseFloat(select.Price) * parseFloat('1.' + that.planMigrationSession.Data.Configuration.Constantes_Igv)).replace(".", ",");
                 var nuevoPrecio = select.Price.toString().replace(".", ",");
-                var arrBanwid = (select.banwid + ';').split(';');
+                var arrBanwid = $.string.isEmptyOrNull(select.banwid) ? [] : (select.banwid + ';').split(';');
                 var XMLDetailService = string.format(feed,
-                    select.LineID, // Cod. Servicio (PVUDB) 
+                    $.string.isEmptyOrNull(select.LineID) ? '' : select.LineID, // Cod. Servicio (PVUDB) 
                    (Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT === 'TOBE' && (select.ServiceType == 'ALQUILER EQUIPOS' || select.ServiceType == 'ALQUILER EQUIPOS IPTV')) ? select.idGrupo : select.idGrupoPrincipal,
-                    select.idGrupo,
+                    $.string.isEmptyOrNull(select.idGrupo) ? '' : select.idGrupo,
                     select.cantidad == null ? 1 : select.cantidad, //CANTIDAD_INSTANCIA
-                    select.ServiceDescription,
-                    arrBanwid[0],//select.banwid,
+                    $.string.isEmptyOrNull(select.ServiceDescription) ? '' : select.ServiceDescription,
+                    arrBanwid.length == 0 ? '' : arrBanwid[0],//select.banwid,
                     '', //FLG_LC,
                     1, //CANTIDAD_ID_LINEA
-                    select.tipequ,
-                    select.codTipoEquipo,
+                    $.string.isEmptyOrNull(select.tipequ) ? '' : select.tipequ,
+                    $.string.isEmptyOrNull(select.codTipoEquipo) ? '' : select.codTipoEquipo,
                     1, //CANTIDAD
-                    select.descEquipo,
-                    select.codigoExterno,
+                    $.string.isEmptyOrNull(select.descEquipo) ? '' : select.descEquipo,
+                    $.string.isEmptyOrNull(select.codigoExterno) ? '' : select.codigoExterno,
                     nuevoPrecio,
-                    select.CoreAdicional,
+                    $.string.isEmptyOrNull(select.CoreAdicional) ? '' : select.CoreAdicional,
                     $.string.isEmptyOrNull(select.idServicio) ? '' : select.idServicio,
                     $.string.isEmptyOrNull(select.spcode) ? '' : select.spcode,
                     $.string.isEmptyOrNull(select.po) ? '' : select.po,

@@ -1251,10 +1251,10 @@
             /*Seccion - left*/
             renderCustomerInformation: function (transactionData) {
                 console.log(transactionData.Data.plataformaAT);
-                var aplicaIGV = (transactionData.Data.plataformaAT == 'TOBE') ? '00' : transactionData.Data.Configuration.Constantes_Igv;
+                var aplicaIGV = '00';// (transactionData.Data.plataformaAT == 'TOBE') ? '00' : transactionData.Data.Configuration.Constantes_Igv;
                 var that = this,
                   igv = "1." + aplicaIGV;
-
+                  
                 if (!$.array.isEmptyOrNull(transactionData.Data.CustomerInformation)) {
                     for (var prop in transactionData.Data.CustomerInformation) {
                         if ($(string.format('#spn{0}', prop)).length > 0) {
@@ -1338,7 +1338,7 @@
                     });
                 } else {
                     alert('Error al consultar los servicio principales del cliente. Por favor, reintente nuevamente más tarde.', null, function () {
-
+						
                         $.unblockUI();
                         parent.window.close();
                     });
@@ -1351,9 +1351,9 @@
             },
 
             renderAdditionalServices: function (transactionData) {
-
+                var aplicaIGV = (transactionData.Data.plataformaAT == 'TOBE') ? '00' : transactionData.Data.Configuration.Constantes_Igv;
                 var that = this,
-                    igv = "1." + (transactionData.Data.plataformaAT == 'TOBE') ? '0' : transactionData.Data.Configuration.Constantes_Igv,
+                    igv = "1." + aplicaIGV,
                    FixedChargeServices = 0;
 
                 function onlyUnique(value, index, self) {
@@ -1760,7 +1760,7 @@
                 callback(igv);
             },
 
-            LoadTimeZone: function (control, objLoadParameters) {
+                LoadTimeZone: function (control, objLoadParameters) {
 
                 var areaApp = window.location.pathname.substr(1).split('/')[0],
                     strUrl = string.format('/{0}/Home/GetDatosFranjaHorario', areaApp);
@@ -1831,8 +1831,8 @@
                 );
             },
 
-
-
+			
+			
             LoadPointOfAttention: function (control, transactionData) {
                 var index = transactionData.Data.DatosUsuarioCtaRed.length;
                 var oDatosUsuarioCtaRed = transactionData.Data.DatosUsuarioCtaRed.length > 0 ?
