@@ -114,14 +114,10 @@
                 controls = that.getControls();
 
             controls.btnSave.addEvent(that, 'click', that.Save_click);
-
-            //Session.SessionParams.DATACUSTOMER.ContractID = "13326803";
-            //Session.SessionParams.DATACUSTOMER.CustomerID = "36248101";
             debugger;
             var plataformaAT = !$.string.isEmptyOrNull(Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT) ? Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT : '';
             var idTransactionFront = $.app.getTypeClientAsIsOrToBe(plataformaAT, '1', '9');
 
-            //var customerPromise = that.customerInformationPromise(controls.divCustomerInformation);
             var customerInformationPromise = $.reusableViews.viewOfTheLeftSide(controls.divCustomerInformation);
             var initialConfigurationPromise = $.app.transactionInitialConfigurationPromise(Session.SessionParams, idTransactionFront);
             Promise.all([customerInformationPromise, initialConfigurationPromise])
@@ -130,10 +126,7 @@
                     var initialConfiguration = res[1].oInitialDataResponse.MessageResponse.Body,
                         AdditionalFixedData = res[1].oDatosAdi.MessageResponse.Body,
                         AuditRequest = res[1].oAuditRequest,
-
                         Configuraciones = res[1].oConfiguraciones,
-
-
                         CoreServices = initialConfiguration.CoreServices || {},
                         AdditionalServices = initialConfiguration.AdditionalServices || {},
                         Igv = initialConfiguration.Igv,
@@ -151,9 +144,8 @@
                         AuditRequest = AuditRequest || {};
 
                     that.planMigrationSession.Data = {};
-                    // Set Configuration 
+                    
                     that.planMigrationSession.Configuration = {};
-
                     // Current Selected Information
                     that.planMigrationSession.Current = {};
                     that.planMigrationSession.Data.idTransactionFront = idTransactionFront;
@@ -187,10 +179,8 @@
                         // Load Customer Information - Left Panel
                         $.app.renderCustomerInformation(that.planMigrationSession);
                         // Load Core Service Information - Left Panel					
-                        //if (!$.array.isEmptyOrNull(that.planMigrationSession.Data.CoreServices))
-                        $.app.renderCoreServices(that.planMigrationSession);
+                         $.app.renderCoreServices(that.planMigrationSession);
                         // Load Additional Service Information - Left Panel
-                        //if (!$.array.isEmptyOrNull(that.planMigrationSession.Data.AdditionalServices))
                         $.app.renderAdditionalServices(that.planMigrationSession);
                         // Load Additional Equipment Information - Left Panel
                         $.app.renderAdditionalEquipment(that.planMigrationSession);
@@ -214,12 +204,10 @@
                         viewsPromise = that.viewsRenderPromise(),
                         stepsPromise = that.stepsRenderPromise(controls.stepsContainer);
 
-                    Promise.all([viewsPromise, stepsPromise]) // Carga de las Vistas de la Transacción
+                    Promise.all([viewsPromise, stepsPromise]) 
                         .then(function (renderResponse) {
 
-                            // Reasign HTML Controls
                             controls = that.AsignControls(that, controls.form);
-
                             that.removeAdditionalService();
                             that.onSelectAdditionalService();
                             $.reusableBusiness.LoadPointOfAttention(controls.ddlCenterofAttention, that.planMigrationSession);
@@ -239,7 +227,6 @@
                             controls.ddlWorkType.change(function () { that.ddlWorkType_Click() });
                             controls.ddlSubWorkType.change(function () { that.ddlSubWorkType_Click() });
                             controls.ddlCenterofAttention.change(function () { that.ddlCenterofAttention_Click() });
-
                             // Change Events
                             controls.mailCheck.addEvent(that, 'click', that.onMailCheck);
                             controls.mailText.addEvent(that, 'focusout', that.onFocusoutEmail);
@@ -248,7 +235,6 @@
                             controls.txtReferencePhone.keydown(function (event) { that.ValidateNumbers_Click(event); });
                             // External Libraries Events
                             controls.txtCalendar.datepicker({ format: 'dd/mm/yyyy' });
-
 
                             controls.sectionScheduling.hide();
 
@@ -391,22 +377,40 @@
                 console.log('stateService:  ' + stateService);
                 console.log('Plataforma:  ' + Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT);
                 if (Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT === 'TOBE') {
-                    if (stateContract.trim().toUpperCase() != 'ACTIVO' || stateService.trim().toUpperCase() != 'ACTIVO') {
-                        alert("El contrato no se encuentra activo.", 'Alerta', function () {
+                    if (!$.array.isEmptyOrNull(stateContract) && !$.array.isEmptyOrNull(stateService)){
+                        if (stateContract.trim().toUpperCase() != 'ACTIVO' || stateService.trim().toUpperCase() != 'ACTIVO') {
+                            alert("El contrato no se encuentra activo.", 'Alerta', function () {
+                                $.unblockUI();
+                                parent.window.close();
+                            });
+                            return false;
+                        }
+                    }else {
+                        alert("Error al consultar el estado del contrato.", 'Alerta', function () {
                             $.unblockUI();
                             parent.window.close();
                         });
                         return false;
                     }
+
                 }
                 else {
-                    if (stateContract.trim().toUpperCase() != 'ACTIVO') {
-                        alert("El contrato no se encuentra activo.", 'Alerta', function () {
+                    if (!$.array.isEmptyOrNull(stateContract)){
+                        if (stateContract.trim().toUpperCase() != 'ACTIVO') {
+                            alert("El contrato no se encuentra activo.", 'Alerta', function () {
+                                $.unblockUI();
+                                parent.window.close();
+                            });
+                            return false;
+                        }
+                    } else {
+                        alert("Error al consultar el estado del contrato.", 'Alerta', function () {
                             $.unblockUI();
                             parent.window.close();
                         });
                         return false;
                     }
+
                 }
             }
 
@@ -2222,15 +2226,17 @@
                 additionalServices = additionalServicesCable.concat(additionalServicesTelephony).concat(additionalServicesInternet);
             markup += '<br />';
             markup += '<b>----------------NUEVO PLAN----------------</b><br />';
-
             markup += string.format('<b>Campaña:</b>{0} <br />', that.planMigrationSession.Current.Plan.CampaignDescription);
             markup += string.format('<b>Servicio:</b>{0}<br />', that.planMigrationSession.Current.Plan.SolutionDescription);
             markup += string.format('<b>Combinación:</b> {0}<br />', that.planMigrationSession.Current.Plan.PlanDescription);
-
+            /*quitar elementos duplicado*/
+			servicesCore = $.array.unique(servicesCore, 'ServiceDescription');
+			/**/
             $.each(servicesCore, function (i, serv) {
                 markup += string.format('<b> {0} | {1}  Costo S/.  {2}  </b>  <br />', serv.ServiceType.toUpperCase(), serv.ServiceDescription, serv.Price);
             });
 
+            
             $.each(additionalServices, function (i, eq) {
                 markup += string.format('<b> {0} | {1}  Costo S/.  {2}  </b>  <br />', eq.ServiceType.toUpperCase(), eq.desc, eq.Price);
             });
@@ -3690,18 +3696,12 @@
             feed += "<CENTRO_ATENCION_AREA>{1}</CENTRO_ATENCION_AREA>";
             feed += "<REPRES_LEGAL>{2}</REPRES_LEGAL>";
             feed += "<TITULAR_CLIENTE>{3}</TITULAR_CLIENTE>";
-
-
             feed += "<TIPO_DOC_IDENTIDAD>{4}</TIPO_DOC_IDENTIDAD>";
             feed += "<PLAN_ACTUAL>{5}</PLAN_ACTUAL>";
             feed += "<CICLO_FACTURACION>{6}</CICLO_FACTURACION>";
-
-
-
             feed += "<FECHA_TRANSACCION_PROGRAM>{7}</FECHA_TRANSACCION_PROGRAM>";
             feed += "<CASO_INTER>{8}</CASO_INTER>";
             feed += "<NRO_SERVICIO>{9}</NRO_SERVICIO>";
-
             feed += "<NRO_DOC_IDENTIDAD>{10}</NRO_DOC_IDENTIDAD>";
             feed += "<NUEVO_PLAN>{11}</NUEVO_PLAN>";
             feed += "<SOLUCION>{12}</SOLUCION>";
@@ -3734,9 +3734,10 @@
                 Session.SessionParams.DATACUSTOMER.ContractID
             )
             var XMLServicios = "";
+            /*quitar elementos duplicado*/
+            data = $.array.unique(data, 'ServiceDescription');
+            /**/
             data.forEach(function (select, idx) {
-
-
 
                 detailXML = "<NOMBRE_SERVICIO>{0}</NOMBRE_SERVICIO>";
                 detailXML += "<TIPO_SERVICIO>{1}</TIPO_SERVICIO>";
@@ -3960,12 +3961,12 @@
                 feed += "<FAMILIA>{22}</FAMILIA>";
                 feed += "<POP1>{23}</POP1>";
                 feed += "<POP2>{24}</POP2>";
-                //var nuevoPrecio = Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT !== 'TOBE' ? select.Price.toString().replace(".", ",") : that.priceFormat(parseFloat(select.Price) * parseFloat('1.' + that.planMigrationSession.Data.Configuration.Constantes_Igv)).replace(".", ",");
+
                 var nuevoPrecio = select.Price.toString().replace(".", ",");
                 var arrBanwid = $.string.isEmptyOrNull(select.banwid) ? [] : (select.banwid + ';').split(';');
                 var XMLDetailService = string.format(feed,
-                    $.string.isEmptyOrNull(select.LineID) ? '' : select.LineID, // Cod. Servicio (PVUDB) 
-                   (Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT === 'TOBE' && (select.ServiceType == 'ALQUILER EQUIPOS' || select.ServiceType == 'ALQUILER EQUIPOS IPTV')) ? select.idGrupo : select.idGrupoPrincipal,
+                    $.string.isEmptyOrNull(select.LineID) ? '' : select.LineID, 
+                   (Session.SessionParams.DATACUSTOMER.objPostDataAccount.plataformaAT === 'TOBE' && ( select.ServiceType.indexOf('ALQUILER EQUIPOS') > -1 )) ? select.idGrupo : select.idGrupoPrincipal,
                     $.string.isEmptyOrNull(select.idGrupo) ? '' : select.idGrupo,
                     select.cantidad == null ? 1 : select.cantidad, //CANTIDAD_INSTANCIA
                     $.string.isEmptyOrNull(select.ServiceDescription) ? '' : select.ServiceDescription,
@@ -4011,8 +4012,9 @@
 
             var predata = datosAdicionales.concat(datosPrincipales);
             var data = datosEquipos.concat(predata)
-
-
+            /*quitar elementos duplicado */
+            data = $.array.unique(data, 'ServiceDescription');
+            /**/
             var xjsonTrama = {
                 "listaTrama": []
             };
