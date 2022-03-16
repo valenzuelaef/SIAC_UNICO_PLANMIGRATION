@@ -12,11 +12,11 @@ namespace Claro.SIACU.App.PlanMigration.Areas.PlanMigration.Models.VisitaTecnica
         public VisitaTecnicaMessageResponse MessageResponse { get; set; } 
     }
 
-    [DataContract(Name = "MessageRequest")]
+    [DataContract(Name = "MessageResponse")]
     public class VisitaTecnicaMessageResponse
     {
         [DataMember(Name = "Header")]
-        public DataPower.HeaderReq Header { get; set; }
+        public DataPower.HeaderRes Header { get; set; }
 
         [DataMember(Name = "Body")]
         public VisitaTecnicaBodyResponse Body { get; set; }

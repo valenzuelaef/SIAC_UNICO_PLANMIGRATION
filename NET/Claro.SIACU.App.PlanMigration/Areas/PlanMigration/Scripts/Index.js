@@ -1178,7 +1178,8 @@
             var that = this,
                 additionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                     .filter(function (item) {
-                        return item.PlanCode == (that.planMigrationSession.Current.Plan.PlanCode && item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO' && isNaN(item.EquipmentCode)) || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS'
+                        //return item.PlanCode == (that.planMigrationSession.Current.Plan.PlanCode && item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO' && isNaN(item.EquipmentCode)) || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS'
+                        return item.PlanCode == (that.planMigrationSession.Current.Plan.PlanCode && item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO' && isNaN(item.EquipmentCode)) ||  item.ServiceType.toUpperCase().indexOf('ALQUILER EQUIPOS') > -1
                     })
                     .map(function (item) {
                         // item.ServiceDescription = $.string.capitalize(item.ServiceDescription.split(' ').slice(1).join(' '));
@@ -1194,7 +1195,9 @@
                             IdServicio: item.sncode == null ? "" : item.sncode,
                             //spcode: item.spCode == null ? "" : item.spCode,
                             //spcode: item.coreAdicional == 'EQUIPO_ALQUILER' && (item.spCode == null ||item.spCode == '')? '1124' : item.spCode, //Default 1124  EQUIPO_ALQUILER
-                            spcode: (item.coreAdicional == 'EQUIPO_ALQUILER' || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') && $.string.isEmptyOrNull(item.spCode) ? '1124' : item.spCode, //Default 1124  EQUIPO_ALQUILER
+                            //spcode: (item.coreAdicional == 'EQUIPO_ALQUILER' || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') && $.string.isEmptyOrNull(item.spCode) ? '1124' : item.spCode, //Default 1124  EQUIPO_ALQUILER
+                            spcode: (item.coreAdicional == 'EQUIPO_ALQUILER' || item.ServiceType.toUpperCase().indexOf('ALQUILER EQUIPOS') > -1) && $.string.isEmptyOrNull(item.spCode) ? '1124' : item.spCode, //Default 1124  EQUIPO_ALQUILER
+
                             GroupName: item.Group == null ? "" : item.Group,
 
                             price: item.FixedCharge == null ? "" : item.FixedCharge,
@@ -1572,12 +1575,9 @@
             var additionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                 .filter(function (item) {
                     return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
-                        /*item.coreAdicional == 'EQUIPO_ALQUILER' &&
-                        item.ServiceEquiptment == 'EQUIPO' &&*/
-                        ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS') &&
-                        item.tipoEquipo.toUpperCase() == equipment.ServiceDescription.toUpperCase() &&
-                        item.ServiceDescription.toUpperCase().indexOf(quantity) > -1 &&
-                        isNaN(item.EquipmentCode)
+                        ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType.toUpperCase().indexOf('ALQUILER EQUIPOS') > -1) &&
+                        item.tipoEquipo.toUpperCase() == equipment.ServiceDescription.toUpperCase() //&&
+                       // item.ServiceDescription.charAt(0) >= quantity
                 })
                 .map(function (item) {
                     return {
@@ -1585,9 +1585,6 @@
                         ServiceDescription: item.ServiceDescription,
                         LineID: item.LineID == null ? "" : item.LineID, //Cod Plan PVUDB
                         FixedCharge: item.FixedCharge == null ? "" : item.FixedCharge,
-
-
-
                         ServiceType: item.ServiceType == null ? "" : item.ServiceType,
                         IdServicio: item.sncode == null ? "" : item.sncode,
                         spcode: item.spCode == null ? "" : item.spCode,
@@ -1614,10 +1611,54 @@
                         pop2: item.pop2 == null ? "" : item.pop2
                     };
                 });
+            
+            additionalEquipment = additionalEquipment.sort(function (a, b) {
+                if (a.ServiceDescription > b.ServiceDescription) { return 1; }
+                if (a.ServiceDescription < b.ServiceDescription) { return -1; }
+                return 0;
+            });
 
+            //var additionalEquipment = ListAdditionalEquipment;//[quantity - 1];
 
+            /*
+            that.planMigrationSession.Current.AdditionalEquipment = that.planMigrationSession.Current.AdditionalEquipment.filter(
+                function (item) {
+                        return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
+                            ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType.toUpperCase().indexOf('ALQUILER EQUIPOS') > -1) &&
+                            item.tipoEquipo.toUpperCase() == equipment.ServiceDescription.toUpperCase() &&
+                            item.ServiceDescription.charAt(0) >= quantity
+                    })
+                    */
+
+            /*
+
+                that.planMigrationSession.Data.FixedPlanDetail
+                    .filter(function (item) {
+                        return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&*/
+                            /*item.coreAdicional == 'EQUIPO_ALQUILER' &&
+                            item.ServiceEquiptment == 'EQUIPO' &&*/
+                // ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+              /*  ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType.toUpperCase().indexOf('ALQUILER EQUIPOS') > -1 ) &&
+                item.tipoEquipo.toUpperCase() == equipment.ServiceDescription.toUpperCase() &&
+                item.ServiceDescription.toUpperCase().indexOf(quantity) > -1 &&
+                isNaN(item.EquipmentCode)
+            })
+                that.planMigrationSession.Data.FixedPlanDetail
+                    .filter(function (item) {
+                        return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
+                            //item.coreAdicional == 'EQUIPO_ALQUILER' &&
+                            //item.ServiceEquiptment == 'EQUIPO' &&
+                            ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                            item.tipoEquipo.toUpperCase() == equipment.ServiceDescription.toUpperCase() &&
+                            item.ServiceDescription.charAt(0) >= quantity
+                    })[0];
+
+            */
             //SI NO HAY DESCRIPCION DE SERVICIO ACORDE A LA CANTIDAD QUE ESTA INGRESANDO , ENTONCES NO INGRESA
-            if (additionalEquipment.length <= 0) {
+
+
+            //if (additionalEquipment.length <= 0) {
+            if (additionalEquipment.length < quantity) {
                 quantity = quantity--;
                 cantidadTotalDecos--;
                 return;
@@ -1625,52 +1666,54 @@
             //var quantity = parseInt(equipment.quantity, 10) + 1;
             $(string.format('#spnQuantity{0}', equipment.type)).text(quantity);
 
-            var equipmentRow = controls.tblAdditionalServices.find(string.format('tr[id="{0}Row"]', additionalEquipment[0].LineID /*equipment.type*/));
+            var equipmentRow = controls.tblAdditionalServices.find(string.format('tr[id="{0}Row"]', additionalEquipment[quantity - 1].LineID /*equipment.type*/));
 
 
             //ESTO ES PARA MOSTRAR EL TOTAL DE PRECIO POR DETALLE DE EQUIPOS
             var markup = '';
-            markup += string.format('<tr id="{0}Row">', additionalEquipment[0].LineID);
-            markup += string.format('<td class="td-cp text-left"><img src="/Content/Images/SUFija/ico_deco.svg">Deco {0}</td>', additionalEquipment[0].ServiceDescription /*equipment.name*/);
+            markup += string.format('<tr id="{0}Row">', additionalEquipment[quantity - 1].LineID);
+            markup += string.format('<td class="td-cp text-left"><img src="/Content/Images/SUFija/ico_deco.svg">Deco {0}</td>', additionalEquipment[quantity - 1].ServiceDescription /*equipment.name*/);
             markup += '<td class="td-cp"></td>';
             //markup += string.format('<td class="td-cp text-right" data-price="{0}">S/ {1}</td>', equipment.unitPrice, that.priceFormat(equipment.unitPrice));
-            markup += string.format('<td class="td-cp text-right" data-price="{0}">S/ {1}</td>', additionalEquipment[0].unitPrice, that.priceFormat(additionalEquipment[0].unitPrice));
+            markup += string.format('<td class="td-cp text-right" data-price="{0}">S/ {1}</td>', additionalEquipment[quantity - 1].unitPrice, that.priceFormat(additionalEquipment[quantity - 1].unitPrice));
             markup += '</tr>';
 
             controls.tblAdditionalServices.find('tbody').append(markup);
 
             that.planMigrationSession.Current.AdditionalEquipment.push({
 
-                LineID: additionalEquipment[0].LineID,
-                ServiceDescription: additionalEquipment[0].ServiceDescription,
-                ServiceType: additionalEquipment[0].ServiceType,
-                idServicio: additionalEquipment[0].IdServicio,
-                Price: additionalEquipment[0].price,
-                idGrupoPrincipal: additionalEquipment[0].idGrupoPrincipal,
-                idGrupo: additionalEquipment[0].idGrupo,
-                banwid: additionalEquipment[0].banwid,
-                unidadcapacidad: additionalEquipment[0].unidadcapacidad,
-                tipequ: additionalEquipment[0].Tipequ,
-                codTipoEquipo: additionalEquipment[0].CodTipoEquipo,
-                descEquipo: additionalEquipment[0].descEquipo,
+                LineID: additionalEquipment[quantity - 1].LineID,
+                ServiceDescription: additionalEquipment[quantity - 1].ServiceDescription,
+                ServiceType: additionalEquipment[quantity - 1].ServiceType,
+                idServicio: additionalEquipment[quantity - 1].IdServicio,
+                Price: additionalEquipment[quantity - 1].price,
+                idGrupoPrincipal: additionalEquipment[quantity - 1].idGrupoPrincipal,
+                idGrupo: additionalEquipment[quantity - 1].idGrupo,
+                banwid: additionalEquipment[quantity - 1].banwid,
+                unidadcapacidad: additionalEquipment[quantity - 1].unidadcapacidad,
+                tipequ: additionalEquipment[quantity - 1].Tipequ,
+                codTipoEquipo: additionalEquipment[quantity - 1].CodTipoEquipo,
+                descEquipo: additionalEquipment[quantity - 1].descEquipo,
                 cantidad: "1",//quantity,
-                codigoExterno: additionalEquipment[0].codigoExterno,
-                spcode: (additionalEquipment[0].spcode == null || additionalEquipment[0].spcode == '') ? '1124' : additionalEquipment[0].spCode, //Default 1124  EQUIPO_ALQUILER
-                GroupName: additionalEquipment[0].GroupName,
-                CoreAdicional: additionalEquipment[0].CoreAdicional,
-                po: additionalEquipment[0].po,
-                poType: additionalEquipment[0].poType,
-                idProducto: additionalEquipment[0].idProducto,
-                umbCons: additionalEquipment[0].umbCons,
-                tipoLimCred: additionalEquipment[0].tipoLimCred,
-                familia: additionalEquipment[0].familia,
-                pop1: additionalEquipment[0].pop1,
-                pop2: additionalEquipment[0].pop2,
+                codigoExterno: additionalEquipment[quantity - 1].codigoExterno,
+                spcode: ($.string.isEmptyOrNull(additionalEquipment[quantity - 1].spcode) ? '1124' : additionalEquipment[quantity - 1].spCode), //Default 1124  EQUIPO_ALQUILER
+                GroupName: additionalEquipment[quantity - 1].GroupName,
+                CoreAdicional: additionalEquipment[quantity - 1].CoreAdicional,
+                po: additionalEquipment[quantity - 1].po,
+                poType: additionalEquipment[quantity - 1].poType,
+                idProducto: additionalEquipment[quantity - 1].idProducto,
+                umbCons: additionalEquipment[quantity - 1].umbCons,
+                tipoLimCred: additionalEquipment[quantity - 1].tipoLimCred,
+                familia: additionalEquipment[quantity - 1].familia,
+                pop1: additionalEquipment[quantity - 1].pop1,
+                pop2: additionalEquipment[quantity - 1].pop2,
                 id: equipment.type,
                 desc: equipment.name,
                 img: '/Content/Images/SUFija/ico_deco.svg',
                 quantity: quantity
             })
+
+
             that.calculateCost(controls.tblAllServices, [controls.nextReceipt]);
             that.calculateCost(controls.tblRecurrentServices, [controls.totalPrice, controls.newFixedCharge]);
 
@@ -1692,7 +1735,7 @@
             equipment.quantity = $(string.format('#spnQuantity{0}', equipment.type)).text();
 
             equipment.id = $(el).closest('tr').attr('data-idservicio');
-
+            debugger;
 
             if (equipment.quantity == 0) {
                 return false;
@@ -1701,15 +1744,16 @@
                 var quantity = parseInt(equipment.quantity, 10) - 1;
                 $(string.format('#spnQuantity{0}', equipment.type)).text(quantity);
 
-
+                /*
                 var xadditionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                       .filter(function (item) {
                           return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
-                              /*item.coreAdicional == 'EQUIPO_ALQUILER' &&
-                              item.ServiceEquiptment == 'EQUIPO' &&*/
-                              ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                              //item.coreAdicional == 'EQUIPO_ALQUILER' &&
+                              //item.ServiceEquiptment == 'EQUIPO' &&
+                              //((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                              ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType.toUpperCase().indexOf('ALQUILER EQUIPOS') > -1) &&
                               item.tipoEquipo.toUpperCase() == equipment.name.toUpperCase() &&
-                              item.ServiceDescription.toUpperCase().indexOf(equipment.quantity) > -1 &&
+                              item.ServiceDescription.charAt(0) >= quantity &&//item.ServiceDescription.toUpperCase().indexOf(equipment.quantity) > -1 &&
                               isNaN(item.EquipmentCode)
                       })
                       .map(function (item) {
@@ -1718,9 +1762,14 @@
                           };
                       });
 
+            */
 
-                var equipmentRow = controls.tblAdditionalServices.find(string.format('tr[id="{0}Row"]', xadditionalEquipment[0].LineID));
+                var xadditionalEquipment = that.planMigrationSession.Current.AdditionalEquipment.filter(function (item) {
+                    return item.desc.toUpperCase() == equipment.name.toUpperCase()
+                });
 
+                //var equipmentRow = controls.tblAdditionalServices.find(string.format('tr[id="{0}Row"]', xadditionalEquipment[0].LineID));
+                var equipmentRow = controls.tblAdditionalServices.find(string.format('tr[id="{0}Row"]', xadditionalEquipment[quantity].LineID));
                 ///if (equipmentRow.length > 0) {
                 equipmentRow.remove();
 
@@ -1742,15 +1791,16 @@
 
                 }
 
-
+                /*
                 var additionalEquipment = that.planMigrationSession.Data.FixedPlanDetail
                     .filter(function (item) {
                         return item.PlanCode == that.planMigrationSession.Current.Plan.PlanCode &&
-                           /*item.coreAdicional == 'EQUIPO_ALQUILER' &&
-                            item.ServiceEquiptment == 'EQUIPO' && */
-                            ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                           //item.coreAdicional == 'EQUIPO_ALQUILER' &&
+                           // item.ServiceEquiptment == 'EQUIPO' && 
+                           // ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') || item.ServiceType == 'ALQUILER EQUIPOS FTTH' || item.ServiceType == 'ALQUILER EQUIPOS IPTV' || item.ServiceType == 'ALQUILER EQUIPOS') &&
+                             ((item.coreAdicional == 'EQUIPO_ALQUILER' && item.ServiceEquiptment == 'EQUIPO') ||  item.ServiceType.toUpperCase().indexOf('ALQUILER EQUIPOS') > -1) &&
                             item.tipoEquipo.toUpperCase() == equipment.name.toUpperCase() &&
-                            item.ServiceDescription.toUpperCase().indexOf(equipment.quantity) > -1 &&
+                            item.ServiceDescription.charAt(0) >= quantity &&//item.ServiceDescription.toUpperCase().indexOf(equipment.quantity) > -1 &&
                             isNaN(item.EquipmentCode)
                     })
                     .map(function (item) {
@@ -1758,11 +1808,15 @@
                             LineID: item.LineID == null ? "" : item.LineID,
                         };
                     });
-
+               
 
                 that.planMigrationSession.Current.AdditionalEquipment = that.planMigrationSession.Current.AdditionalEquipment.filter(function (el, idx) {
                     return el.LineID != additionalEquipment[0].LineID
+                }); */
+                that.planMigrationSession.Current.AdditionalEquipment = that.planMigrationSession.Current.AdditionalEquipment.filter(function (el, idx) {
+                    return  el.LineID != xadditionalEquipment[quantity].LineID
                 });
+
                 ////}
 
                 that.calculateCost(controls.tblAllServices, [controls.nextReceipt]);
